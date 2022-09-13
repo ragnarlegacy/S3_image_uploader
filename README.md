@@ -57,14 +57,24 @@ First, clone the repository on your local system.
    <b>$sudo docker build -t friendsurance:v1 .</b>
    
    <b>$sudo docker images</b> ## check with this command. Image would be there in the output friendsurance as name and v1 as tag
+      
+7. Change the ENVIRONMENT Variables in the env.list file as per your environment
    
-7. Deploy the container image
+    AWS_ACCESS_ID=xxxxxxx
+    AWS_ACCESS_KEY=xxxxxxx
+    REGION_NAME=us-east-1
+    BUCKET_NAME=friendsurance-bucket
+    BUCKET_DIR=uploads
+    TEMP_DIR=/app/.sys-cache
+      
+   
+8. Deploy the container image
 
    <b>$sudo docker run -it -d --env-file=env.list --p 8081:80 --name friendsurance_uploader friendsurance:v1</b>
    
    #Here Name of the container is <b>friendsurance_uploader</b>, <b>environment variables</b> are passed through <b>env.list file</b>(you can even pass them at     the cli by using -e key:value), image name is <b>friendsurance:v1</b>
-   
-8. You can check the running status of the docker container
+     
+9. You can check the running status of the docker container
 
    <b>$sudo docker ps -a</b>
    Output will be like this:
@@ -75,10 +85,10 @@ First, clone the repository on your local system.
   
    <h4>629867d0c0ea     friendsurance:v1   "uvicorn main:app --…"      2 hours ago      Up 2 hours    0.0.0.0:8081->80/tcp, :::8081->80/tcp   friendsurance_container</h4>
    
-9. Now finally, your api's are ready to go and can browse the api url something like this on the browser
+10. Now finally, your api's are ready to go and can browse the api url something like this on the browser
    <h3>http://ec2_instance_public_ip_address_or_domain:8081/</h3>  ## By invoking this url, success results will returned.
 
-10. FastAPI has inbuilt feature of Swagger to document apis'. So, invoke the url like this and playaround with the API's.
+11. FastAPI has inbuilt feature of Swagger to document apis'. So, invoke the url like this and playaround with the API's.
     <h3>http://ec2_instance_public_ip_address_or_domain:8081/docs</h3>
 
 
