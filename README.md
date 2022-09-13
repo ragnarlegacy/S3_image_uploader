@@ -1,11 +1,11 @@
 This tutorial is dedicated to one of the many solutions to upload media files to S3 bucket.
-In this tutorial, Python, FastAPI, Docker and AWS services are being used. AWS services are created using cloudformation templates. API's are created using FastAPI library.
+In this tutorial, Python3, FastAPI, Docker and AWS services are being used. AWS services are created using cloudformation templates. API's are created using FastAPI library.
 
 This repository contains the functioning code for uploading the images to the S3 bucket using python API. 
 
 
 First, Clone the repository on your local system.
-$git clone 
+$git clone https://github.com/ragnarlegacy/S3_image_uploader.git
 
 After cloning teh repository, How to setup further?
    
@@ -34,7 +34,7 @@ After cloning teh repository, How to setup further?
    $sudo systemctl start docker && sudo systemctl enable docker ## to start and enable docker service
    
 4. Clone the repository to the EC2 instance
-   $git clone 
+   $git clone https://github.com/ragnarlegacy/S3_image_uploader.git
    
 5. Change into the directory
    $cd S3_image_uploader/
@@ -59,3 +59,7 @@ After cloning teh repository, How to setup further?
 
 10. Swagger is inbuilt feature of FastAPI. So, invoke the url like this and playaround with the API's.
    http://ec2_instance_public_ip_address_or_domain:8081/docs
+
+
+Suggestions: 
+This task can also be achived by creating a Lambda Function written in python, behind an AWS API Gateway and with a S3 bucket attached. 
