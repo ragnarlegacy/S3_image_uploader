@@ -85,4 +85,4 @@ First, clone the repository on your local system.
       
       
 <b>Suggestions:</b> 
-This task can also be achived by creating a Lambda Function written in python, behind an AWS API Gateway and with a S3 bucket attached. 
+This task can also be achived by creating a Lambda Function written in python, behind an AWS API Gateway and with a S3 bucket attached. Will try this next.
