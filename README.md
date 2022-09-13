@@ -4,13 +4,13 @@ In this tutorial, Python3, FastAPI, Docker and AWS services are being used. AWS 
 This repository contains the functioning code for uploading the images to the S3 bucket using python API. 
 
 
-First, Clone the repository on your local system.
+First, clone the repository on your local system.
 $git clone https://github.com/ragnarlegacy/S3_image_uploader.git
 
-After cloning teh repository, How to setup further?
+After cloning the repository, How to setup further?
    
-1. Change to cloudformation directory
-   $cd cloudformation
+1. Change to the cloudformation directory
+   $cd cloudformation/
    
    To create stack through cloudformation templates:
    Execute commands:
@@ -20,6 +20,9 @@ After cloning teh repository, How to setup further?
    To update stack configuration:
    Execute commands:
    $aws cloudformation create-stack --stack-name <name_of_choice> --template-body file://aws_instance_creation.yaml ## for instance creation
+   
+   To delete stack:
+   $aws cloudformation create-stack --stack-name <name_of_choice>  ## to delete the stack
    
    Note: 
    1. Create keypair to access EC2 instance with console : Create instance > scroll to keypair > Click Generate Key pair > Download the pem file
@@ -44,7 +47,7 @@ After cloning teh repository, How to setup further?
    $sudo docker images ## check with this command. Image would be there in the output friendsurance as name and v1 as tag
    
 7. Deploy the container image
-   $sudo docker run -it -d --env-file=env.list --p 8081:80 --name friendsurance_uploader friendsurance:v1   ## Here Name of the conatiner is friendsurance_uploader, environment variables are passed through env.list file(you can even pass them at cli using -e key:value), image name is friendsurance:v1
+   $sudo docker run -it -d --env-file=env.list --p 8081:80 --name friendsurance_uploader friendsurance:v1   ## Here Name of the conatiner is friendsurance_uploader, environment variables are passed through env.list file(you can even pass them at the cli by using -e key:value), image name is friendsurance:v1
    
 8. You can check the running status of the docker container
    $sudo docker ps -a
@@ -54,7 +57,7 @@ After cloning teh repository, How to setup further?
    629867d0c0ea   friendsurance:v1   "uvicorn main:app --…"   2 hours ago   Up 2 hours               0.0.0.0:8081->80/tcp, :::8081->80/tcp   friendsurance_container
    4ddc859fddc6   83dc381a6fea       "/bin/sh -c 'pip ins…"   2 hours ago   Exited (1) 2 hours ago                                           keen_lederberg
    
-9. Now finally, you api are reday to work and can browse the api url something like this on the browser
+9. Now finally, your api's are ready to go and can browse the api url something like this on the browser
    http://ec2_instance_public_ip_address_or_domain:8081/  ## By invoking this url, success results will returned.
 
 10. Swagger is inbuilt feature of FastAPI. So, invoke the url like this and playaround with the API's.
